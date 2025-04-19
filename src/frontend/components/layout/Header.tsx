@@ -63,7 +63,7 @@ export default function Header(): JSX.Element {
                 </div>
               </button>
 
-              <div className="absolute right-0 mt-2 hidden group-hover:block bg-white border border-gray-200 rounded-lg shadow-lg py-2 w-48 z-50">
+              <div className="absolute  right-0 mt-2  group-hover:block bg-white border border-gray-200 rounded-lg shadow-lg py-2 w-48 z-250">
                 <a
                   href="/dashboard"
                   className="block px-4 py-2 hover:bg-gray-100 text-gray-700"

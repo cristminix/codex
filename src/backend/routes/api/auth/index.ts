@@ -24,7 +24,7 @@ authRouter.post("/login",zValidator(
     password:z.string().min(1)
   })
 ),login)
-authRouter.post("/logout",logout)
+authRouter.post("/logout",checkAuthSession,logout)
 authRouter.get("/me",checkAuthSession,me)
 
 
