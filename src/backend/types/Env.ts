@@ -17,5 +17,6 @@ import { D1Database } from '@cloudflare/workers-types';
     AUTH_SECRET?: string;
     GOOGLE_CLIENT_ID?: string;
     GOOGLE_CLIENT_SECRET?: string;
+    ALLOWED_ORIGINS?: string;
     [key: string]: unknown; // Allows for flexibility but specific types are preferred
   }

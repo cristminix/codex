@@ -70,3 +70,6 @@ export const responses = sqliteTable('responses', {
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
 });
+
+export type InsertUser = typeof users.$inferInsert;
+export type SelectUser = typeof users.$inferSelect;

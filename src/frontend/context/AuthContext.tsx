@@ -65,7 +65,8 @@ export function AuthProvider({ children }: AuthProviderProps): JSX.Element {
         }
         return res.json();
       })
-      .then((userData: User) => {
+      .then((json) => {
+        const userData = json.user
         console.log('Server authenticated user:', userData.email);
         setUser(userData);
       })
@@ -105,7 +106,7 @@ export function AuthProvider({ children }: AuthProviderProps): JSX.Element {
         throw new Error(errorData.error || 'Login failed');
       }
 
-      const {data} = await response.json();
+      const data = await response.json();
       console.log('AuthContext: Login success, user data:', data.user);
       setUser(data.user);
       localStorage.setItem('authToken',data.token)

@@ -10,13 +10,22 @@ import { cancelDeletion } from "./cancelDeletion";
 import { google } from "./google";
 import { callbackGoogle } from "./callbackGoogle";
 import { googleTestGetVerificationCode } from "./googleTestGetVerificationCode";
+import { zValidator } from '@hono/zod-validator';
+import { z } from 'zod';
+import { checkAuthSession } from '@backend/routes/api/middlewares/checkAuthSession.ts';
 
 const authRouter = createHonoWithBinding()
 
 authRouter.post("/register",register)
-authRouter.post("/login",login)
+authRouter.post("/login",zValidator(
+  'json',
+  z.object({
+    email: z.string().email(),
+    password:z.string().min(1)
+  })
+),login)
 authRouter.post("/logout",logout)
-authRouter.post("/me",me)
+authRouter.get("/me",checkAuthSession,me)
 
 
 authRouter.post("/verify-email",verifyEmail)

@@ -57,7 +57,7 @@ export async function handleRegistration(request: Request, env: any): Promise<Re
     
     // Insert the user
     await env.DB.prepare(
-      "INSERT INTO users (id, email, username, emailVerified, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?)"
+      "INSERT INTO users (id, email, username, email_verified, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)"
     ).bind(
       userId,
       email,
