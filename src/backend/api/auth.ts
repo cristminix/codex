@@ -6,6 +6,8 @@ import { initializeLucia, initializeGoogleProvider, formatUserResponse, extractS
 import { createSuccessResponse, createErrorResponse } from '../middleware/cors.ts';
 import { createDb } from '@backend/db/client.ts';
 import {users} from "@backend/db/schema.ts"
+import {CookieStore, sessionMiddleware} from "hono-sessions";
+import {generateState, OAuth2Client} from "oslo/oauth2";
 /**
  * Handle registration via username/password
  */
@@ -321,10 +323,10 @@ export async function handleGoogleCallback(request: Request, env: any): Promise<
   const googleAuth = initializeGoogleProvider(auth, env);
   
   // Retrieve session handler for cookie management
-  const sessionHandler = auth.handleRequest(request.method, {
-    request: request.url,
-    headers: request.headers,
-  });
+  // const sessionHandler = auth.handleRequest(request.method, {
+  //   request: request.url,
+  //   headers: request.headers,
+  // });
   
   if (!googleAuth) {
     return createErrorResponse(

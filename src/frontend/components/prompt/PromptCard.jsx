@@ -5,7 +5,7 @@ import ShareButton from '../ui/ShareButton';
 import CopyButton from '../ui/CopyButton';
 
 export default function PromptCard({ prompt }) {
-  const { id, title, content, isPublic, createdAt, updatedAt } = prompt;
+  let { id, title, content, isPublic, createdAt, updatedAt } = prompt;
   const [responseCount, setResponseCount] = useState(0);
 
   useEffect(() => {
@@ -19,7 +19,9 @@ export default function PromptCard({ prompt }) {
       setResponseCount(count);
     }
   }, [id]);
-
+  if(!content) {
+    content = prompt.contentPreview
+  }
   // Use title if available, otherwise truncate content
   const displayTitle =
     title || (content.length > 50 ? `${content.substring(0, 50)}...` : content);

@@ -14,6 +14,7 @@ export default function Dashboard() {
     refresh().catch(error => {
       console.error('Error refreshing prompts:', error);
     });
+    console.log({prompts})
   }, []);
 
   return (

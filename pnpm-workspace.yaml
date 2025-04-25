@@ -4,3 +4,6 @@ onlyBuiltDependencies:
   - puppeteer
   - sharp
   - workerd
+
+ignoredBuiltDependencies:
+  - better-sqlite3

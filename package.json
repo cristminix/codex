@@ -48,9 +48,11 @@
     "drizzle-orm": "^0.41.0",
     "express": "^4.21.2",
     "hono": "^4.7.7",
+    "hono-sessions": "^0.7.2",
     "jwt-decode": "^3.1.2",
     "lucia": "^2.0",
     "marked": "^9.1.0",
+    "oslo": "^1.2.1",
     "preact": "^10.13.1",
     "preact-router": "^4.1.2",
     "zod": "^3.24.3"
@@ -79,6 +81,5 @@
     "vite": "^4.4.5",
     "vite-node": "^3.1.1",
     "wrangler": "^4.6.0"
-  },
-  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
+  }
 }

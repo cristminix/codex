@@ -16,7 +16,7 @@ export default function ResponseCard({ response, promptId }) {
     response.isMarkdown ? 'rendered' : 'raw'
   );
 
-  const { id, modelName, rawContent, cleanContent, isMarkdown, webEnabled } =
+  const { id, modelName, rawContent, cleanContent, isMarkdown, webEnabled,content,contentPreview } =
     response;
 
   const handleDelete = async () => {
@@ -70,8 +70,8 @@ export default function ResponseCard({ response, promptId }) {
         }}
       >
         <MarkdownPreview
-          rawContent={rawContent}
-          renderedContent={cleanContent}
+          rawContent={rawContent??content}
+          renderedContent={cleanContent??contentPreview}
           isMarkdown={isMarkdown && viewMode === 'rendered'}
           size="small"
           compact={true}

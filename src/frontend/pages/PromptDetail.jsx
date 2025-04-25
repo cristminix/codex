@@ -43,7 +43,7 @@ export default function PromptDetail({ id }) {
   const loadPrompt = async () => {
     setLoading(true);
     try {
-      const loadedPrompt = getPrompt(id);
+      const loadedPrompt = await getPrompt(id);
       if (loadedPrompt) {
         setPrompt(loadedPrompt);
         setIsPublic(loadedPrompt.isPublic);
@@ -400,7 +400,7 @@ export default function PromptDetail({ id }) {
       ) : (
         <ResponseList responses={responses} promptId={id} />
       )}
-
+      {prompt.responses.length>0?(<ResponseList responses={prompt.responses} promptId={id} />):null}
       {/* Add Response Modal */}
       <Modal
         isOpen={isAddingResponse}

@@ -1,6 +1,5 @@
 import { Context,Next } from 'hono';
-import { formatUserResponse, initializeLucia } from '@backend/utils/auth.ts';
-import { getCookie } from 'hono/cookie';
+import { initializeLucia } from '@backend/utils/auth.ts';
 import { getAuthSession } from '@backend/fn/getAuthSession.ts';
 
 export async function checkAuthSession(c:Context,next:Next) {

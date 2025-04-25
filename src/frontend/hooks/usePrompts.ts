@@ -54,7 +54,7 @@ export default function usePrompts(): UsePromptsReturn {
     setLoading(true);
     try {
       // Use API to fetch prompts
-      const response = await fetch(`http://localhost/api/prompts`, {
+      const response = await fetch(`http://localhost:8787/api/prompts`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`
         }
@@ -62,7 +62,10 @@ export default function usePrompts(): UsePromptsReturn {
       
       if (response.ok) {
         const data = await response.json();
-        setPrompts(data.data || []);
+        const newPrompts = data.data || []
+        // console.log({data,newPrompts})
+        if(Array.isArray(data))
+        setPrompts(o=>[...data]);
       } else {
         console.error('Failed to load prompts:', response.status);
         setPrompts([]);
@@ -88,7 +91,7 @@ export default function usePrompts(): UsePromptsReturn {
       }
       
       const data = await response.json();
-      return data.data || null;
+      return data;
     } catch (error) {
       console.error('Error getting prompt:', error);
       return null;

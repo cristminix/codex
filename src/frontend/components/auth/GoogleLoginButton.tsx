@@ -34,7 +34,7 @@ export function GoogleLoginButton({ className = '' }: GoogleLoginButtonProps): J
         throw new Error(`Failed to get Google auth URL: ${response.status}`);
       }
       
-      const result = await response.json();
+      const {data:result} = await response.json();
       console.log('Direct fetch result:', result);
       
       // Only use auth context as fallback if direct fetch fails
